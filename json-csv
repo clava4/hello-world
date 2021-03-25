@@ -1,0 +1,10 @@
+import json
+import csv
+
+with open("cars.json", "r") as file:
+    data = json.load(file)
+
+with open("cars.csv", "w") as file:
+    csv.writer(file).writerow(["Car", "Price"])
+    for item in data["cars"]:
+        csv.writer(file).writerow([item['name'], item['price']])
